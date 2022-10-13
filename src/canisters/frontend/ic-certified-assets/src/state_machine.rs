@@ -495,6 +495,22 @@ impl State {
         let mut encodings = vec![];
         // waiting for https://dfinity.atlassian.net/browse/BOUN-446
         let etags = Vec::new();
+
+        if let Some(_host_header) = req
+            .headers
+            .iter()
+            .find_map(|(k, v)| k.eq_ignore_ascii_case("Host").then(|| v))
+        {
+            println!("all good")
+        } else {
+            return HttpResponse {
+                status_code: 400,
+                headers: vec![],
+                body: RcBytes::from(ByteBuf::from("not good")),
+                streaming_strategy: None,
+            };
+        }
+
         for (name, value) in req.headers.iter() {
             if name.eq_ignore_ascii_case("Accept-Encoding") {
                 for v in value.split(',') {

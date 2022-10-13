@@ -74,7 +74,7 @@ impl RequestBuilder {
         Self {
             resource: resource.as_ref().to_string(),
             method: "GET".to_string(),
-            headers: vec![],
+            headers: vec![("Host".to_string(), "localhost:testfixture".to_string())],
             body: ByteBuf::new(),
         }
     }
