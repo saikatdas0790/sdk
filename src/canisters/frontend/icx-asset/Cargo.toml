@@ -26,7 +26,7 @@ pem = "1.0.1"
 serde = "1.0.115"
 serde_bytes = "0.11.5"
 serde_json = "1.0.57"
-time = { version = "0.3.9", features = ["formatting", "local-offset"] }
-tokio = { version = "1.2.0", features = ["full", "rt"] }
+time = { version = "0.3.47", features = ["formatting", "local-offset"] }
+tokio = { version = "1.26.0", features = ["full", "rt"] }
 thiserror = "1.0.24"
 walkdir = "2.3.1"
